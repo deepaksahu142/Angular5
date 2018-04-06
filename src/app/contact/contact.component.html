@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+       <h2>Contact </h2>
+
+       <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+              <label for="name">Name:</label>
+              <input #refName type="text" class="form-control" formControlName="name">
+              <!-- <span>{{refName.className}}</span> -->
+              <div *ngIf="userForm.controls['name'].hasError('required')" class="alert alert-danger">
+                Please enter a name
+              </div>
+              <div *ngIf="userForm.controls['name'].hasError('minlength')" class="alert alert-danger">
+                  Please enter atleast 4 characters
+              </div>
+
+                <div *ngIf="userForm.controls['name'].hasError('maxlength')" class="alert alert-danger">
+                    Please enter max 10 characters
+                </div>
+            </div>
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div formGroupName="address">
+          <div class="form-group">
+              <label for="street">Street:</label>
+              <input type="text" class="form-control" formControlName="street">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" formControlName="city">
+              </div>
+
+              <div class="form-group">
+                  <label for="postalcode">Postal Code:</label>
+                  <input type="number" class="form-control" formControlName="postalcode">
+              </div>
+              <div *ngIf="userForm.controls['address'].controls['postalcode'].hasError('pattern')" class="alert alert-danger">
+                  Postalcode format is five digits 
+              </div>
+        </div>      
+        
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+      </form>
+      <p>Form value: {{ userForm.value | json }}</p>
+
+      <h3>Form Data</h3>
+
+    <div *ngFor="let formData of formDatas; let i = index;">
+      <p><label>Index: </label>{{i}} </p>
+      <p> <label>Name:</label>  {{formData.name}}  </p>
+      <p><label>Email:</label>  {{formData.email}}  </p>
+      <p><label>Street:</label>  {{formData.address.street}}  </p>
+      <p><label>City:</label>  {{formData.address.city}}  </p>
+      <p><label>PostalCode:</label>  {{formData.address.postalcode}}  </p>
+    </div>
+      
+
+    </div>
+</div>

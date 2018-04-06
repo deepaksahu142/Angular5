@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+       <h2>Posts </h2>
+       <ul class="list-group">
+          <li class="list-group-item" *ngFor="let postServiceData of postServiceDatas; let i = index;">
+           id: {{postServiceData.id}}  <br>
+           Title : {{postServiceData.title}}<br> 
+           Body: {{postServiceData.body}}</li>
+      </ul>
+      </div>
+</div>

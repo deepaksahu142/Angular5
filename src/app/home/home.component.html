@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row">
+       <h2>Home</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+        
+      
+       
+
+        <p [innerText]="defaultText"></p> 
+        
+        <hr>
+
+        <h2> Use of ngIf directive along with Databinding</h2>
+        <label> Server Name </label>
+        <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+        <input type="text" class="form-control" [(ngModel)]="serverName">
+        <br>
+        <button class="btn btn-danger" [disabled]="trueFalseBoolean" (click)="onCreateServer()">Add server</button>
+        <br>
+        <p *ngIf="serverText; else noServer">Horray Server Got created {{serverName}}</p> 
+        <br>
+         <ng-template #noServer>
+            <p>No server was created. </p>
+         </ng-template> 
+        
+         <hr>
+
+         <h2> Style binding using ngStyle directive </h2>
+
+         <div [ngStyle]="getTheme()">The color of this text will change on the click of radio button</div>
+
+         <input type="radio" name="radioBtn" (click)="setValue(1)">
+         <input type="radio" name="radioBtn" (click)="setValue(2)">
+         <input type="radio" name="radioBtn" (click)="setValue(3)">
+         <input type="radio" name="radioBtn" (click)="setValue(4)">
+         <input type="radio" name="radioBtn" (click)="setValue(5)">
+         
+         <hr>
+         <h2>Created a custom directive to change the text color </h2>
+         <h3 appBlueColor>Custom Directive </h3>
+         <hr>
+         <h2> Class binding using ngClass directive </h2>
+
+         <div [ngClass]="getClass()">The  text will change on the basis of class defined</div>
+         <!-- <div [ngClass]="['second', 'third']">The  text will change on the basis of class defined</div> -->
+
+         <input type="radio" name="radioButton" (click)="chooseeClass(1)">
+         <input type="radio" name="radioButton" (click)="chooseeClass(2)">
+        
+         <hr>
+
+         <h2> Display list of Data using ngFor Directive</h2>
+
+         <ul class="list-group">
+            
+            <li class="list-group-item" *ngFor="let myArrayColor of myArrayColors; let i = index;">{{i}} {{myArrayColor}}</li>
+          
+        </ul>
+
+
+        <div class="dropdown-box">
+            <button class="btn btn-primary"  (click)="buttonClicked()">
+                Bulk Operation
+              <span class="caret"></span>
+            </button>
+            <div class="text-sec" *ngIf="dropDownText">
+              <a class="dropdown-item" (click)="openPopup()">Delete</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+       
+</div>
+
+
+<div class="popup-container" *ngIf="showPopup">
+    
+
+  <div class="text">
+      <button type="button" class="close" aria-label="Close" (click)="hidePopup()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <h3> This is the heading </h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe odit nam voluptates molestiae ex sapiente error veniam doloremque recusandae fugiat sunt, explicabo numquam ipsa amet maxime. Cum perferendis non ipsum.</p>
+      <button class="btn btn-danger" (click)="deleteData()">click here to delete </button>
+  </div>
+
+
+
+</div>

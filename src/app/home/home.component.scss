@@ -1,0 +1,50 @@
+.popup-container { 
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0,0,0,0.6);
+    display: block;
+    .text { 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%); 
+        width: 300px;
+        padding: 15px;
+        background: #fff;
+    }
+}
+
+.dropdown-box {
+    position: relative;
+    .text-sec {
+        width: 250px;
+        box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+        padding: 5px 10px;
+        a {
+            display: block;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+            text-decoration: none;
+
+        }
+    }
+}
+
+.first { 
+    color:red;
+    font-size: 20px;
+}
+.second { 
+    font-style: italic;
+}
+
+.third { 
+   
+    color: blue;
+    font-size: 28px;
+}
