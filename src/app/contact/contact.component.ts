@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   //   })
   // });
 
-  formDatas= [];
+  formDatas = [];
   newData;
   userForm: FormGroup;
   constructor(private _formBuilder: FormBuilder) {}
@@ -27,8 +27,8 @@ export class ContactComponent implements OnInit {
       name : ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       email : ['', [Validators.required]],
       address : this._formBuilder.group({
-          street : [],
-          city : [],
+          street : ['', [Validators.required]],
+          city : ['', [Validators.required]],
           postalcode: [null, [Validators.pattern('^[1-9][0-9]{4}$')] ]
       })
     });
@@ -38,6 +38,12 @@ export class ContactComponent implements OnInit {
     this.newData = this.userForm.value;
     this.formDatas.push(this.newData);
     this.userForm.reset();
+  }
+
+
+  deleteData(i: number) {
+    this.formDatas.splice(i);
+
   }
 
 }

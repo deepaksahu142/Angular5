@@ -48,16 +48,30 @@
       <p>Form value: {{ userForm.value | json }}</p>
 
       <h3>Form Data</h3>
-
-    <div *ngFor="let formData of formDatas; let i = index;">
-      <p><label>Index: </label>{{i}} </p>
-      <p> <label>Name:</label>  {{formData.name}}  </p>
-      <p><label>Email:</label>  {{formData.email}}  </p>
-      <p><label>Street:</label>  {{formData.address.street}}  </p>
-      <p><label>City:</label>  {{formData.address.city}}  </p>
-      <p><label>PostalCode:</label>  {{formData.address.postalcode}}  </p>
-    </div>
-      
+    <table class="table">
+            <thead>
+              <tr>
+                <th>Index:</th>
+                <th>Name:</th>
+                <th>Email:</th>
+                <th>Street:</th>
+                <th>City:</th>
+                <th>PostalCode:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let formData of formDatas; let i = index;">
+                <td>{{i}}</td>
+                <td>{{formData.name}} </td>
+                <td>{{formData.email}}</td>
+                <td> {{formData.address.street}}</td>
+                <td>{{formData.address.city}}</td>
+                <td>{{formData.address.postalcode}}</td>
+                <td><button type="button" (click)="deleteData(i)">Delete </button></td>
+              </tr>
+              
+            </tbody>
+          </table>
 
     </div>
 </div>
