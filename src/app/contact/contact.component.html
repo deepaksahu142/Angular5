@@ -67,6 +67,7 @@
                 <td> {{formData.address.street}}</td>
                 <td>{{formData.address.city}}</td>
                 <td>{{formData.address.postalcode}}</td>
+                <td><button type="button" (click)="updateData(i, formData.name , formData.email , formData.address.street, formData.address.city, formData.address.postalcode)">Update</button></td>
                 <td><button type="button" (click)="deleteData(i)">Delete </button></td>
               </tr>
               

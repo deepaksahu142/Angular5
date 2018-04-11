@@ -40,10 +40,12 @@ export class ContactComponent implements OnInit {
     this.userForm.reset();
   }
 
+  updateData(i: number , name: string , email: string , street: string, city: string, postalcode: number) {
+    this.userForm.patchValue({name: name , email: email});
+  }
 
   deleteData(i: number) {
     this.formDatas.splice(i);
-
   }
 
 }
